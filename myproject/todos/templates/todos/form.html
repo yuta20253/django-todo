@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Todoを編集</h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">更新</button>
+    <a href="{% url 'todo_list' %}" class="btn btn-secondary">キャンセル</a>
+  </form>
+</div>
+{% endblock %}

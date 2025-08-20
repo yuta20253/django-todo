@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Todo 削除確認{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Todo 削除確認</h2>
+
+    <div class="card" style="max-width: 600px;">
+        <div class="card-body">
+            <p>以下の Todo を本当に削除してもよろしいですか？</p>
+            <h4>{{ object.title }}</h4>
+            {% if object.description %}
+                <p>{{ object.description }}</p>
+            {% endif %}
+            <p><strong>完了状態:</strong> {% if object.is_completed %}完了{% else %}未完了{% endif %}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">削除する</button>
+                <a href="{% url 'todo_list' %}" class="btn btn-secondary">キャンセル</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

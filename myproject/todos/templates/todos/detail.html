@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ todo.title }}の詳細{% endblock %}
+
+{% block content %}
+    <div class="card" style="max-width: 600px;">
+        <div class="card-body">
+            <div class="todo-detail">
+                <h2 class="card-title">{{ todo.title }}</h2>
+                <p class="card-text"><strong>内容:</strong> {{ todo.description }}</p>
+                <p class="card-text">
+                    <strong>完了状態:</strong>
+                    {% if todo.is_completed %}完了{% else %}未完了{% endif %}
+                </p>
+                <p class="card-text">
+                    <strong>作成日:</strong>
+                    {{ todo.created_at }}
+                </p>
+                <p class="card-text">
+                    <strong>更新日:</strong>
+                    {{ todo.updated_at }}
+                </p>
+                <a href="{% url 'todo_edit' todo.pk %}" class="btn btn-primary">編集</a>
+                <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-danger">削除</a>
+                <a href="{% url 'todo_list' %}" class="btn btn-secondary">一覧に戻る</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

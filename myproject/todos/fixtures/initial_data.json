@@ -1,0 +1,150 @@
+[
+  {
+    "model": "todos.user",
+    "pk": 1,
+    "fields": {
+      "name": "リリコ",
+      "age": 22
+    }
+  },
+  {
+    "model": "todos.user",
+    "pk": 2,
+    "fields": {
+      "name": "武田",
+      "age": 28
+    }
+  },
+
+  {
+    "model": "todos.todo",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "title": "買い物に行く",
+      "description": "野菜と果物を買う",
+      "is_completed": false,
+      "due_date": "2025-08-25",
+      "created_at": "2025-08-20T10:00:00Z",
+      "updated_at": "2025-08-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "title": "洗濯をする",
+      "description": "シーツとタオルを洗う",
+      "is_completed": false,
+      "due_date": "2025-08-22",
+      "created_at": "2025-08-20T10:05:00Z",
+      "updated_at": "2025-08-20T10:05:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "title": "図書館に行く",
+      "description": "借りた本を返却する",
+      "is_completed": false,
+      "due_date": "2025-08-23",
+      "created_at": "2025-08-20T10:10:00Z",
+      "updated_at": "2025-08-20T10:10:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "title": "友達とランチ",
+      "description": "カフェで約束",
+      "is_completed": false,
+      "due_date": "2025-08-24",
+      "created_at": "2025-08-20T10:15:00Z",
+      "updated_at": "2025-08-20T10:15:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "title": "プレゼン準備",
+      "description": "資料のスライドを作る",
+      "is_completed": false,
+      "due_date": "2025-08-26",
+      "created_at": "2025-08-20T10:20:00Z",
+      "updated_at": "2025-08-20T10:20:00Z"
+    }
+  },
+
+  {
+    "model": "todos.todo",
+    "pk": 6,
+    "fields": {
+      "user": 2,
+      "title": "出張の準備",
+      "description": "スーツと資料を用意する",
+      "is_completed": false,
+      "due_date": "2025-08-25",
+      "created_at": "2025-08-20T11:00:00Z",
+      "updated_at": "2025-08-20T11:00:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 7,
+    "fields": {
+      "user": 2,
+      "title": "会議資料を確認",
+      "description": "最新の数値を反映する",
+      "is_completed": false,
+      "due_date": "2025-08-22",
+      "created_at": "2025-08-20T11:05:00Z",
+      "updated_at": "2025-08-20T11:05:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 8,
+    "fields": {
+      "user": 2,
+      "title": "運動する",
+      "description": "30分ランニング",
+      "is_completed": false,
+      "due_date": "2025-08-23",
+      "created_at": "2025-08-20T11:10:00Z",
+      "updated_at": "2025-08-20T11:10:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 9,
+    "fields": {
+      "user": 2,
+      "title": "家計簿をつける",
+      "description": "先週の支出を整理",
+      "is_completed": false,
+      "due_date": "2025-08-24",
+      "created_at": "2025-08-20T11:15:00Z",
+      "updated_at": "2025-08-20T11:15:00Z"
+    }
+  },
+  {
+    "model": "todos.todo",
+    "pk": 10,
+    "fields": {
+      "user": 2,
+      "title": "英語の勉強",
+      "description": "リスニング教材を進める",
+      "is_completed": false,
+      "due_date": "2025-08-26",
+      "created_at": "2025-08-20T11:20:00Z",
+      "updated_at": "2025-08-20T11:20:00Z"
+    }
+  }
+]
