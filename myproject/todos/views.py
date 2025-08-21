@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Todo
+from .forms import TodoForm
 
 # Create your views here.
 class TodoListView(ListView):
@@ -16,7 +17,7 @@ class TodoDetailView(DetailView):
 
 class TodoUpdateView(UpdateView):
     model = Todo
-    fields = ['title', 'description', 'is_completed', 'due_date']
+    form_class = TodoForm
     template_name = 'todos/form.html'
     success_url = reverse_lazy('todo_list')
 
