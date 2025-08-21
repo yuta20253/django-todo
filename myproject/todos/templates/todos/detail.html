@@ -1,29 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}{{ todo.title }}の詳細{% endblock %}
+{% block title %}{{ todo.title }} の詳細{% endblock %}
 
 {% block content %}
-    <div class="card" style="max-width: 600px;">
-        <div class="card-body">
-            <div class="todo-detail">
-                <h2 class="card-title">{{ todo.title }}</h2>
-                <p class="card-text"><strong>内容:</strong> {{ todo.description }}</p>
-                <p class="card-text">
-                    <strong>完了状態:</strong>
-                    {% if todo.is_completed %}完了{% else %}未完了{% endif %}
-                </p>
-                <p class="card-text">
-                    <strong>作成日:</strong>
-                    {{ todo.created_at }}
-                </p>
-                <p class="card-text">
-                    <strong>更新日:</strong>
-                    {{ todo.updated_at }}
-                </p>
-                <a href="{% url 'todo_edit' todo.pk %}" class="btn btn-primary">編集</a>
-                <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-danger">削除</a>
-                <a href="{% url 'todo_list' %}" class="btn btn-secondary">一覧に戻る</a>
-            </div>
-        </div>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow-lg rounded-3 w-100" style="max-width: 750px;">
+    <div class="card-header bg-gradient bg-primary text-white d-flex justify-content-between align-items-center">
+      <h3 class="mb-0">{{ todo.title }}</h3>
+      {% if todo.is_completed %}
+        <span class="badge bg-success fs-6">完了</span>
+      {% else %}
+        <span class="badge bg-warning text-dark fs-6">未完了</span>
+      {% endif %}
     </div>
+    <div class="card-body">
+      <div class="mb-4 p-4 border rounded shadow-sm bg-light">
+        <h5 class="fw-bold mb-2">
+          内容
+        </h5>
+        <p class="mb-0" style="white-space: pre-wrap;">{{ todo.description }}</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <strong>作成日:</strong> {{ todo.created_at|date:"Y/m/d H:i" }}
+        </div>
+        <div class="col-md-6 mb-2">
+          <strong>更新日:</strong> {{ todo.updated_at|date:"Y/m/d H:i" }}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <a href="{% url 'todo_edit' todo.pk %}" class="btn btn-sm btn-primary me-2">
+        編集
+      </a>
+      <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-sm btn-danger me-2">
+        削除
+      </a>
+      <a href="{% url 'todo_list' %}" class="btn btn-sm btn-secondary">
+        一覧に戻る
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock %}
