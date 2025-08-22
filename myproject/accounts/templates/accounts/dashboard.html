@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body text-center">
+      <h2 class="mb-3">ダッシュボード</h2>
+      <p class="lead">ようこそ、<strong>{{ user.username }}</strong> さん！</p>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="{% url 'todo_list' %}" class="btn btn-primary">
+            Todo一覧
+        </a>
+        <a href="#" class="btn btn-secondary">
+            アカウント設定
+        </a>
+      </div>
+      <form action="{% url 'logout' %}" method="post" class="mt-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">ログアウト</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
