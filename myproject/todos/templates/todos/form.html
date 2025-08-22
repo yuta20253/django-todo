@@ -43,7 +43,11 @@
 
         <div class="form-check mb-3">
           {{ form.is_completed }}
-          <label for="{{ form.is_completed.id_for_label }}" class="form-check-label">完了済み</label>
+          {% if form.is_completed %}
+            <label for="{{ form.is_completed.id_for_label }}" class="form-check-label">完了済に変更</label>
+          {% else %}
+            <label for="{{ form.is_completed.id_for_label }}" class="form-check-label">未完了に変更</label>
+          {% endif %}
         </div>
 
         <div class="d-flex justify-content-between mt-4">
