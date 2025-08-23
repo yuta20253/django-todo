@@ -10,6 +10,8 @@ class TodoListView(LoginRequiredMixin, ListView):
     model = Todo
     template_name = 'todos/index.html'
     context_object_name = 'todos'
+    def get_queryset(self):
+        return Todo.objects.filter(user=self.request.user)
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
     model = Todo

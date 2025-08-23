@@ -8,7 +8,7 @@
         {% for todo in todos %}
             <li class="list-group-item d-flex justify-content-between align-item-center">
                 <a href="{% url 'todo_detail' todo.pk %}">
-                    {{ todo.title }} - {{ todo.user.name}} -
+                    {{ todo.title }} - {{ todo.user.username}} -
                 </a>
                 <span class="badge {% if todo.is_completed %}bg-success{% else %}bg-warning text-dark{% endif %}"></span>
             </li>
