@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.db.models import Q
 from .models import Todo
 from .forms import TodoForm
 
@@ -11,7 +12,10 @@ class TodoListView(LoginRequiredMixin, ListView):
     template_name = 'todos/index.html'
     context_object_name = 'todos'
     def get_queryset(self):
-        return Todo.objects.filter(user=self.request.user)
+        user = self.request.user
+        return Todo.objects.filter(
+            Q(user=user) | Q(group__in=user.todo_groups.all())
+        )
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
     model = Todo
