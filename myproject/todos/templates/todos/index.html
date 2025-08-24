@@ -6,7 +6,23 @@
 
 {% block content %}
 <div class="container my-5">
-    <h1 class="mb-4">Todo 一覧</h1>
+    <div>
+        <h1 class="mb-4">Todo 一覧</h1>
+        <form method="get" class="mb-4">
+            <select name="category">
+                <option value="">
+                    -- カテゴリを選択 --
+                </option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}"
+                    {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">絞り込み</button>
+        </form>
+    </div>
     <div class="card mb-5">
         <div class="card-header bg-primary text-white">
             <h3 class="mt-0">個人</h3>
