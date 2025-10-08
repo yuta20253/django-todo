@@ -20,6 +20,20 @@
         </h5>
         <p class="mb-0" style="white-space: pre-wrap;">{{ todo.description }}</p>
       </div>
+
+      <div class="mb-4">
+        <strong class="custom-font">優先度:</strong>
+        {% if todo.priority == 1 %}
+          <span class="badge bg-danger">高</span>
+        {% elif todo.priority == 2 %}
+          <span class="badge bg-warning text-dark">中</span>
+        {% elif todo.priority == 3 %}
+          <span class="badge bg-secondary">低</span>
+        {% else %}
+          <span class="badge bg-light text-dark">未設定</span>
+        {% endif %}
+      </div>
+
       <div class="row">
         <div class="col-md-6 mb-2">
           <strong class="custom-font">作成日:</strong> {{ todo.created_at|date:"Y/m/d H:i" }}
