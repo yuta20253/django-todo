@@ -20,11 +20,16 @@ class TodoListView(LoginRequiredMixin, ListView):
         if category_id:
             queryset = queryset.filter(category_id=category_id)
 
+        priority = self.request.GET.get('priority')
+        if priority:
+            queryset = queryset.filter(priority=priority)
+
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["categories"] = Category.objects.all()
+        context["priorities"] = Todo.PRIORITY_CHOICES
         return context
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
